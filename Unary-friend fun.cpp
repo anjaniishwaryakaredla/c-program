@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+class Number
+{
+	int x;
+public:
+	Number(int a)
+	{
+		x = a;
+	}
+	friend Number operator+(Number n1, Number n2);
+	void display()
+	{
+		cout<<"Value ="<<x<<endl;
+	}
+};
+Number operator+(Number n1, Number n2)
+{
+	Number temp(0);
+	temp.x= n1.x+ n2.x;
+	return temp;
+}
+int main()
+{
+	Number n1(10), n2(20), n3(30);
+	n3 = n1 + n2;
+	cout<<"Sum:";
+	n3.display();
+	return 0;
+}
